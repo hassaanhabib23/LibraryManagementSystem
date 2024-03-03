@@ -24,9 +24,9 @@
     $sql = "SELECT id,Category_name,Created_on FROM books_categories";
     $data = $conn->query($sql);
     if ($data->num_rows > 0) {
-       while( $rows = $data->fetch_assoc()){
-        array_push($categories, $rows);
-       }
+        while ($rows = $data->fetch_assoc()) {
+            array_push($categories, $rows);
+        }
     }
     ?>
     <form action="" method="post">
@@ -36,8 +36,7 @@
         <div class="container2">
             <nav style="padding-top: 15px;">
                 <a href="category_management.php" class="navstyle">Category</a>
-                <a href="" class="navstyle">Author</a>
-                <a href="" class="navstyle">Location Rack</a>
+                <a href="author_management.php" class="navstyle">Author</a>
                 <a href="" class="navstyle">Book</a>
                 <a href="" class="navstyle">User</a>
                 <a href="" class="navstyle">Issue Book</a>

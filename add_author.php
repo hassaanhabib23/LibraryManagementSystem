@@ -10,29 +10,29 @@
 
 <body>
     <?php
-    $category_name = "";
+    $author_name = "";
     $date = "";
     $conn = new mysqli("localhost", "root", "", "librarymanagementsystem");
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $category_name = strtoupper($_POST['categoryname']);
+        $author_name = strtoupper($_POST['authorname']);
         $date = date("Y-m-d");
         $valid = true;
-        if (empty($category_name)) {
+        if (empty($author_name)) {
             $valid = false;
             $error = "Enter Category Name";
         }
-        if (is_numeric($category_name)) {
+        if (is_numeric($author_name)) {
             $valid = false;
             $error = "Invalid category name";
         }
         if ($valid == true) {
-            $sql1 = "SELECT Category_name FROM books_categories WHERE Category_name='$category_name'";
+            $sql1 = "SELECT Author_name FROM book_author WHERE Author_name='$author_name'";
             $data = $conn->query($sql1);
             if ($data->num_rows == 0) {
                 $conn = new mysqli("localhost", "root", "", "librarymanagementsystem");
-                $sql2 = "INSERT INTO books_categories (Category_name,Created_on) VALUES('$category_name','$date')";
+                $sql2 = "INSERT INTO book_author (Author_name,Created_on) VALUES('$author_name','$date')";
                 $conn->query($sql2);
-                header("Location:http://localhost/LibraryManagementSystem/category_management.php");
+                header("Location:http://localhost/LibraryManagementSystem/author_management.php");
             } else {
                 $error = "Category already exist";
             }
@@ -55,12 +55,12 @@
             </nav>
         </div>
         <div class="container4">
-            <h2>Add Category</h2><br>
-            <input type="text" placeholder="Category Name" name="categoryname" value="<?php echo $category_name; ?>" style="width: 430px;height: 30px;"><br><br>
+            <h2>Add Author</h2><br>
+            <input type="text" placeholder="Author Name" name="authorname" value="<?php echo $author_name; ?>" style="width: 430px;height: 30px;"><br><br>
             <p style="margin-left: 170px;"><?php if (isset($error)) {
                                                 echo $error;
                                             } ?></p>
-            <input type="submit" name="add" value="Add Category" class="addcategorybutton">
+            <input type="submit" name="add" value="Add Author" class="addcategorybutton">
         </div>
     </form>
 </body>
