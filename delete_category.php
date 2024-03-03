@@ -5,36 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="category_management.css">
-    <title>Categories</title>
+    <title>deleteCategory</title>
 </head>
 
 <body>
     <?php
-    $category_name = "";
-    $date = "";
+    $categories = array();
     $conn = new mysqli("localhost", "root", "", "librarymanagementsystem");
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $category_name = strtoupper($_POST['categoryname']);
-        $date = date("Y-m-d");
+    $sql = "SELECT Category_name FROM books_categories";
+    $data = $conn->query($sql);
+    if ($data->num_rows > 0) {
+        while ($rows = $data->fetch_assoc()) {
+            array_push($categories, $rows);
+        }
+    }
+    $error = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $category_name = $_POST['selectedcategory'];
         $valid = true;
         if (empty($category_name)) {
             $valid = false;
-            $error = "Enter Category Name";
+            $error = "Select Category";
         }
-        if (is_numeric($category_name)) {
-            $valid = false;
-            $error = "Invalid category name";
-        }
-        if ($valid == true) {
-            $sql1 = "SELECT Category_name FROM books_categories WHERE Category_name='$category_name'";
-            $data = $conn->query($sql1);
-            if ($data->num_rows == 0) {
+        if (isset($_POST['deletecategory'])) {
+            if ($valid == true) {
                 $conn = new mysqli("localhost", "root", "", "librarymanagementsystem");
-                $sql2 = "INSERT INTO books_categories (Category_name,Created_on) VALUES('$category_name','$date')";
-                $conn->query($sql2);
+                $sql = "DELETE FROM books_categories where Category_name='$category_name'";
+                $conn->query($sql);
                 header("Location:http://localhost/LibraryManagementSystem/category_management.php");
-            } else {
-                $error = "Category already exist";
             }
         }
     }
@@ -56,12 +54,15 @@
             </nav>
         </div>
         <div class="container4">
-            <h2>Add Category</h2><br>
-            <input type="text" placeholder="Category Name" name="categoryname" value="<?php echo $category_name; ?>" style="width: 430px;height: 30px;"><br><br>
-            <p style="margin-left: 170px;"><?php if (isset($error)) {
-                                                echo $error;
-                                            } ?></p>
-            <input type="submit" name="add" value="Add Category" class="addcategorybutton">
+            <h2>Delete Category</h2>
+            <select name="selectedcategory" id="selectstyle">
+                <option value="">Select Category</option>
+                <?php foreach ($categories as $key) { ?>
+                    <option value="<?php echo $key['Category_name']; ?>"><?php echo $key['Category_name']; ?></option>
+                <?php } ?>
+            </select>
+            <input type="submit" name="deletecategory" value="Delete" class="addcategorybutton" style="    margin-left: 80px;width: 95px;height: 37px"><br><br>
+            <h4 style="color:red;margin-left: 50px;"><?php echo $error; ?></h4>
         </div>
     </form>
 </body>

@@ -3,12 +3,14 @@
     color: lightgrey;
     padding-left: 100px;
 }
+
 .container2 {
     background: rgb(17, 34, 5);
     padding-left: 15px;
     height: 50px;
     text-align: center;
 }
+
 #logoutstyle {
     margin-left: 500px;
     text-decoration: none;
@@ -18,4 +20,72 @@
 .imagestyle {
     width: 55px;
     border-radius: 50%;
+}
+
+.container3 {
+    margin-left: 230px;
+    margin-top: 100px
+}
+
+.addbutton {
+    margin-left: 515px;
+    background-color: green;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 25px;
+}
+
+.deletebutton {
+    margin-left: 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 25px;
+}
+
+.container4 {
+    border: 3px solid bisque;
+    display: inline-block;
+    margin-top: 150px;
+    margin-left: 480px;
+    width: 660px;
+    min-height: 250px;
+    padding-left: 70px;
+    background-color: beige;
+    height: auto;
+}
+
+.addcategorybutton {
+    margin-left: 160px;
+    width: 140px;
+    height: 45px;
+    border-radius: 25px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    margin-top: 25px;
+}
+
+a:hover {
+    color: crimson;
+}
+
+.addcategorybutton:hover {
+    cursor: pointer;
+    background-color: brown;
+}
+
+th,
+td {
+    width: 400px;
+    padding-top: 20px;
+    border: 2px solid darkgrey;
+    text-align: center;
+}
+
+#selectstyle {
+    width: 230px;
+    height: 36px;
 }

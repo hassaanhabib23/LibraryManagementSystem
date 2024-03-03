@@ -36,6 +36,7 @@
         if ($is_valid == true) {
             if ($username == "admin" && $password == "1234") {
                 array_push($login_errors, "login Successfully");
+                header("Location:http://localhost/LibraryManagementSystem/adminhomepage.php");
             } else {
                 array_push($login_errors, "Invalid username or password");
             }

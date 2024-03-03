@@ -15,6 +15,18 @@
         if (isset($_POST['addcategory'])) {
             header("Location:http://localhost/LibraryManagementSystem/add_category.php");
         }
+        if (isset($_POST['deletecategory'])) {
+            header("Location:http://localhost/LibraryManagementSystem/delete_category.php");
+        }
+    }
+    $categories = array();
+    $conn = new mysqli("localhost", "root", "", "librarymanagementsystem");
+    $sql = "SELECT id,Category_name,Created_on FROM books_categories";
+    $data = $conn->query($sql);
+    if ($data->num_rows > 0) {
+       while( $rows = $data->fetch_assoc()){
+        array_push($categories, $rows);
+       }
     }
     ?>
     <form action="" method="post">
@@ -33,20 +45,31 @@
                 <a href="" id="logoutstyle">logout</a>
             </nav>
         </div>
-        <div>
-            <div><span>Category Management</span> <input type="submit" name="addcategory" value="Add"></div>
+        <div class="container3">
+            <div><span>
+                    <h2 style="display: inline-block;">Category Management</h2>
+                </span> <input type="submit" name="addcategory" value="Add" class="addbutton"><input type="submit" name="deletecategory" value="Delete" class="deletebutton" style="background-color: darkred;"></div>
             <table>
                 <tr>
+                    <th style="width: 50px;">
+                        Id
+                    </th>
+
                     <th>
                         Category Name
                     </th>
                     <th>
                         Created On
                     </th>
-                    <th>
-                        Action
-                    </th>
                 </tr>
+                <?php
+                foreach ($categories as $element) { ?>
+                    <tr>
+                        <td style="width: 50px;"><?php echo $element['id']; ?></td>
+                        <td><?php echo $element['Category_name']; ?></td>
+                        <td><?php echo $element['Created_on'] ?></td>
+                    </tr>
+                <?php } ?>
             </table>
         </div>
     </form>
