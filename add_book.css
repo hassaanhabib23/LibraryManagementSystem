@@ -1,0 +1,54 @@
+.container2 {
+    background: rgb(17, 34, 5);
+    padding-left: 15px;
+    height: 50px;
+    text-align: center;
+}
+
+#logoutstyle {
+    margin-left: 500px;
+    text-decoration: none;
+    color: lightcoral;
+}
+
+.imagestyle {
+    width: 55px;
+    border-radius: 50%;
+}
+
+.navstyle {
+    text-decoration: none;
+    color: lightgrey;
+    padding-left: 100px;
+}
+
+.container3 {
+    border: 3px solid bisque;
+    display: inline-block;
+    margin-top: 150px;
+    margin-left: 480px;
+    width: 660px;
+    min-height: 270px;
+    padding-left: 70px;
+    background-color: beige;
+    height: auto;
+}
+
+body{
+    background-color: cadetblue;
+}
+.fields {
+    width: 240px;
+    height: 30px;
+}
+
+#btnaddbook {
+    margin-left: 180px;
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    margin-top: 25px;
+}

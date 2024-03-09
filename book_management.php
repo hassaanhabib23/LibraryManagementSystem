@@ -12,18 +12,22 @@
     <?php
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['addauthor'])) {
-            header("Location:http://localhost/LibraryManagementSystem/add_author.php");
+        if (isset($_POST['addbook'])) {
+            header("Location:http://localhost/LibraryManagementSystem/add_book.php");
         }
-        if (isset($_POST['deleteauthor'])) {
-            header("Location:http://localhost/LibraryManagementSystem/delete_author.php");
+        if (isset($_POST['deletebook'])) {
+            header("Location:http://localhost/LibraryManagementSystem/delete_book.php");
         }
     }
-    $authors = array();
+    $books = array();
     $conn = new mysqli("localhost", "root", "", "librarymanagementsystem");
-    $sql = "SELECT author_id,Author_name,Created_on FROM book_author";
+    $sql = "SELECT * FROM book_detail";
     $data = $conn->query($sql);
-
+    if ($data->num_rows > 0) {
+        while ($rows = $data->fetch_assoc()) {
+            array_push($books, $rows);
+        }
+    }
     ?>
     <form action="" method="post">
         <div style="margin-left: 30px;">
@@ -41,10 +45,10 @@
                 <a href="" id="logoutstyle">logout</a>
             </nav>
         </div>
-        <div class="container3">
+        <div class="container5">
             <div><span>
-                    <h2 style="display: inline-block;">Author Management</h2>
-                </span> <input type="submit" name="addauthor" value="Add" class="addbutton"><input type="submit" name="deleteauthor" value="Delete" class="deletebutton" style="background-color: darkred;"></div>
+                    <h2 style="display: inline-block;">Book Management</h2>
+                </span> <input type="submit" name="addbook" value="Add" class="addbutton" style="margin-left: 1285px;"><input type="submit" name="deletebook" value="Delete" class="deletebutton" style="background-color: darkred;"></div>
             <?php if ($data->num_rows > 0) {
                 while ($rows = $data->fetch_assoc()) {
                     array_push($authors, $rows);
@@ -56,24 +60,35 @@
                         </th>
 
                         <th>
+                            book Name
+                        </th>
+                        <th>
                             Author Name
+                        </th>
+                        <th>
+                            Category Name
+                        </th>
+                        <th style="width: 70px;">
+                            ISBN Number
                         </th>
                         <th>
                             Created On
                         </th>
                     </tr>
                     <?php
-                    foreach ($authors as $element) { ?>
+                    foreach ($books as $element) { ?>
                         <tr>
-                            <td style="width: 50px;"><?php echo $element['author_id']; ?></td>
-                            <td><?php echo $element['Author_name']; ?></td>
+                            <td style="width: 50px;"><?php echo $element['book_id']; ?></td>
+                            <td><?php echo $element['book_name']; ?></td>
+                            <td><?php echo $element['book_author']; ?></td>
+                            <td><?php echo $element['book_category']; ?></td>
+                            <td><?php echo $element['book_ISBN']; ?></td>
                             <td><?php echo $element['Created_on'] ?></td>
                         </tr>
                     <?php } ?>
                 </table>
             <?php } ?>
         </div>
-
     </form>
 </body>
 

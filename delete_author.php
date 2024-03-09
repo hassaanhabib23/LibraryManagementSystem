@@ -43,9 +43,10 @@
         </div>
         <div class="container2">
             <nav style="padding-top: 15px;">
+                <a href="adminhomepage.php" class="navstyle">Home</a>
                 <a href="category_management.php" class="navstyle">Category</a>
                 <a href="author_management.php" class="navstyle">Author</a>
-                <a href="" class="navstyle">Book</a>
+                <a href="book_management.php" class="navstyle">Book</a>
                 <a href="" class="navstyle">User</a>
                 <a href="" class="navstyle">Issue Book</a>
                 <a href="" class="navstyle"></a>
