@@ -29,7 +29,7 @@
     $category = '';
     $isbn_number = '';
     $invalid = true;
-    $bool = false;
+    $bool = true;
     $error = array();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $bookname = $_POST['bookname'];
@@ -57,21 +57,26 @@
             array_push($error, "Invalid Book name");
         }
         if ($invalid == true) {
+            echo "f";
             $conn = new mysqli("localhost", "root", "", "librarymanagementsystem");;
             $sql2 = "SELECT * FROM book_detail WHERE book_name='$bookname' AND book_author='$authors' AND book_category='$category' AND book_ISBN='$isbn_number'";
             $alldata = $conn->query($sql2);
 
             if ($alldata->num_rows > 0) {
+                echo "s";
                 $bool = false;
                 array_push($error, "This book already exist");
             }
-            if ($bool == true) {
+            if($bool=true){
                 $sql = "SELECT * FROM book_detail WHERE book_ISBN='$isbn_number'";
                 $ISBN = $conn->query($sql);
                 if ($ISBN->num_rows > 0) {
+                    echo "fo";
+
                     $bool = false;
                     array_push($error, "ISBN number already exist");
                 } else {
+                    echo "fi";
                     $date = date("Y/m/d");
                     $conn = new mysqli("localhost", "root", "", "librarymanagementsystem");
                     $sql3 = "INSERT INTO book_detail (book_name,book_author,book_category,book_ISBN,Created_on) VALUES('$bookname','$authors','$category','$isbn_number','$date')";

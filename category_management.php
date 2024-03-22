@@ -48,7 +48,7 @@
         <div class="container3">
             <div><span>
                     <h2 style="display: inline-block;">Category Management</h2>
-                </span> <input type="submit" name="addcategory" value="Add" class="addbutton"><input type="submit" name="deletecategory" value="Delete" class="deletebutton" style="background-color: darkred;"></div>
+                </span> <input type="submit" name="addcategory" value="Add" class="addbutton" style="margin-left: 315px;"><input type="submit" name="deletecategory" value="Delete" class="deletebutton" style="background-color: darkred;"></div>
             <table>
                 <tr>
                     <th style="width: 50px;">

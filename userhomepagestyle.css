@@ -1,0 +1,42 @@
+.imagestyle {
+    width: 55px;
+    border-radius: 50%;
+}
+
+.container2 {
+    background: rgb(17, 34, 5);
+    padding-left: 15px;
+    height: 50px;
+    text-align: center;
+}
+
+.navstyle {
+    text-decoration: none;
+    color: lightgrey;
+    padding-left: 100px;
+}
+
+a:hover {
+    cursor: pointer;
+    color: rgb(51, 83, 201);
+}
+
+a:active {
+    color: yellowgreen;
+}
+
+body {
+    background-color: cornflowerblue;
+}
+
+th,
+td {
+    width: 300px;
+    padding-top: 20px;
+    border: 2px solid darkgrey;
+    text-align: center;
+}
+
+.container3 {
+    margin-left: 100px;
+}

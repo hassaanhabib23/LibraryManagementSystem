@@ -18,7 +18,7 @@
         $rows = $data->num_rows;
         return $rows;
     }
-    
+
     ?>
     <form action="" method="post">
         <div style="margin-left: 30px;">
@@ -33,41 +33,47 @@
                 <a href="" class="navstyle">User</a>
                 <a href="" class="navstyle">Issue Book</a>
                 <a href="" class="navstyle"></a>
-                <a href="" id="logoutstyle">logout</a>
+                <a href="homepage_1.php" id="logoutstyle">logout</a>
             </nav>
         </div>
 
-        <div style="margin-top: 100px; margin-left: 230px;">
+        <div style="margin-top: 100px; margin-left: 330px;">
             <div>
                 <h2>Admin Dashboard</h2>
             </div>
             <table>
                 <tr>
                     <td>
-                        <div id="D_container1">Total Books Issue</div>
+                        <strong>
+                            <div id="D_container1">Total Books Issue</div>
+                        </strong>
                     </td>
                     <td>
-                        <div id="D_container1" style="background-color: red;">Total Books return</div>
+                        <strong>
+                            <div id="D_container1" style="background-color: red;">Total Books return</div>
+                        </strong>
                     </td>
                     <td>
-                        <div id="D_container1" style="background-color: brown;">Total Books Not Return</div>
-                    </td>
-                    <td>
-                        <div id="D_container1" style="background-color: yellowgreen;">Total Fine Recieved</div>
+                        <strong>
+                            <div id="D_container1" style="background-color: brown;">Total Books Not Return</div>
+                        </strong>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div id="D_container1" style="background-color: darkolivegreen;">Total Books</div>
+                        <strong>
+                            <div id="D_container1" style="background-color: darkolivegreen;">Total Books<br><br><?php echo bookdata("book_name", "book_detail"); ?></div>
+                        </strong>
                     </td>
                     <td>
-                        <div id="D_container1" style="background-color: tomato;">Total Authors <br><br><?php echo bookdata("Author_name", "book_Author"); ?></div>
+                        <strong>
+                            <div id="D_container1" style="background-color: tomato;">Total Authors <br><br><?php echo bookdata("Author_name", "book_Author"); ?></div>
+                        </strong>
                     </td>
                     <td>
-                        <strong><div id="D_container1" style="background-color: darkgreen;">Total Categories <br><br><?php echo bookdata("Category_name", "books_categories"); ?></div></strong>
-                    </td>
-                    <td>
-                        <div id="D_container1" style="background-color: darkmagenta;">Total Location Racks</div>
+                        <strong>
+                            <div id="D_container1" style="background-color: darkgreen;">Total Categories <br><br><?php echo bookdata("Category_name", "books_categories"); ?></div>
+                        </strong>
                     </td>
                 </tr>
             </table>

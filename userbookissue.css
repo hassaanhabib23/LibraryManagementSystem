@@ -1,0 +1,66 @@
+.container2 {
+    background: rgb(17, 34, 5);
+    padding-left: 15px;
+    height: 50px;
+    text-align: center;
+}
+
+.navstyle {
+    text-decoration: none;
+    color: lightgrey;
+    padding-left: 100px;
+}
+
+.imagestyle {
+    width: 55px;
+    border-radius: 50%;
+}
+
+body {
+    background-color: cornflowerblue;
+}
+
+a:hover {
+    cursor: pointer;
+    color: rgb(51, 83, 201);
+}
+
+.container3 {
+    margin: 0 auto;
+    width: 500px;
+    background-color: blanchedalmond;
+    text-align: center;
+    min-height: 250px;
+    border-radius: 10px;
+}
+
+.fieldstyle {
+    height: 35px;
+    width: 270px;
+    margin-top: 20px;
+}
+
+.headingstyle {
+    margin: 0 auto;
+    width: 502px;
+    margin-top: 75px;
+    margin-bottom: 20px;
+}
+
+.btnbookstyle {
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: -40px;
+}
+
+li {
+    color: rgb(234, 36, 36);
+}

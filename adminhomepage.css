@@ -1,5 +1,5 @@
 body {
-    background-color: cadetblue;
+    background-color: cornflowerblue;
 }
 
 .container2 {
@@ -39,4 +39,7 @@ td {
     border-radius: 15px;
     padding-top: 15px;
 
+}
+a:active{
+color: rgb(37, 52, 219);
 }

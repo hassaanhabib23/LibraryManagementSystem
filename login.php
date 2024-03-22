@@ -44,7 +44,9 @@
             $sql = "SELECT * FROM userdetail WHERE  email='$email'AND passwords='$password'";
             $data = $conn->query($sql);
             if ($data->num_rows == 1) {
-                array_push($login_errors, "Login Successfully");
+                session_start();
+                $_SESSION['email']=$email;
+                header("Location:http://localhost/LibraryManagementSystem/userhomepage.php");
             } else {
                 array_push($login_errors, "Email or password incorrect");
             }
@@ -59,9 +61,9 @@
             <input type="password" name="passwords" placeholder="Password" class="fieldStyling" value="4545"><br><br>
             <button class="buttonStyling" name="btnlogin"><strong>Login</strong></button><br><br>
             <p style="display:inline;">Not a member?</p>
-            <a href="2">SignUp now</a>
+            <a href="signup_form.php">SignUp now</a>
         </form>
-        <ul style="color: red; list-style-type: none;" ><?php foreach ($login_errors as $errors) { ?>
+        <ul style="color: red; list-style-type: none;"><?php foreach ($login_errors as $errors) { ?>
                 <li><?php echo $errors ?></li>
             <?php } ?>
         </ul>

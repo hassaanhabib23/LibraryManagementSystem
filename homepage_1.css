@@ -45,7 +45,9 @@ body {
     border-radius: 5px;
     background-color: antiquewhite;
 }
-
+a:active{
+    color: rgb(37, 52, 219);
+}
 .buttonstyle1 {
     border: 2px solid;
     color: white;

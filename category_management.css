@@ -1,6 +1,7 @@
-body{
-    background-color: cadetblue;
+body {
+    background-color: cornflowerblue;
 }
+
 .navstyle {
     text-decoration: none;
     color: lightgrey;
@@ -88,10 +89,12 @@ td {
     text-align: center;
 }
 
+
 #selectstyle {
     width: 230px;
     height: 36px;
 }
+
 .container5 {
     margin-left: 130px;
     margin-top: 100px

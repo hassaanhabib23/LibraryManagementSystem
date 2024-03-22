@@ -44,7 +44,7 @@
         <div class="container3">
             <div><span>
                     <h2 style="display: inline-block;">Author Management</h2>
-                </span> <input type="submit" name="addauthor" value="Add" class="addbutton"><input type="submit" name="deleteauthor" value="Delete" class="deletebutton" style="background-color: darkred;"></div>
+                </span> <input type="submit" name="addauthor" value="Add" class="addbutton" style="margin-left: 335px;"><input type="submit" name="deleteauthor" value="Delete" class="deletebutton" style="background-color: darkred;"></div>
             <?php if ($data->num_rows > 0) {
                 while ($rows = $data->fetch_assoc()) {
                     array_push($authors, $rows);
